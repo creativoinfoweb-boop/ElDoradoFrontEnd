@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Frontend (Next.js)",
+      "runtimeExecutable": "/Users/ciro/.nvm/versions/node/v22.14.0/bin/node",
+      "runtimeArgs": ["/Users/ciro/Desktop/workspace/projects/trading/mt5-saas/frontend/node_modules/next/dist/bin/next", "dev"],
+      "port": 3000,
+      "cwd": "/Users/ciro/Desktop/workspace/projects/trading/mt5-saas/frontend"
+    }
+  ]
+}
