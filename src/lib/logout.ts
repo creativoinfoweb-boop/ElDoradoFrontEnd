@@ -13,5 +13,8 @@ export async function performAppLogout(
   if (p && typeof p.clearStorage === 'function') {
     p.clearStorage()
   }
-  await signOut({ redirectUrl: '/' })
+  // URL assoluto: dopo il logout Clerk può passare da *.accounts.dev; con solo "/" il return può finire sul sign-in hosted.
+  const home =
+    typeof window !== 'undefined' ? `${window.location.origin}/` : '/'
+  await signOut({ redirectUrl: home })
 }

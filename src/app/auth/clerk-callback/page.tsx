@@ -79,7 +79,11 @@ export default function ClerkCallbackPage() {
   }
 
   const handleSignOut = async () => {
-    await signOut({ redirectUrl: '/auth/login' })
+    const login =
+      typeof window !== 'undefined'
+        ? `${window.location.origin}/auth/login`
+        : '/auth/login'
+    await signOut({ redirectUrl: login })
   }
 
   return (

@@ -68,6 +68,7 @@ export default function ClerkWrapper({ children }: { children: ReactNode }) {
       appearance={clerkAppearance}
       signInUrl="/auth/login"
       signUpUrl="/auth/register"
+      afterSignOutUrl="/"
       signInForceRedirectUrl={afterAuth}
       signInFallbackRedirectUrl={afterAuth}
       signUpForceRedirectUrl={afterAuth}
