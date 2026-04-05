@@ -3,6 +3,7 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import { itIT } from '@clerk/localizations'
 import type { ReactNode } from 'react'
+import { clerkPublishableKey } from '@/lib/clerk-env'
 
 const clerkAppearance = {
   variables: {
@@ -64,6 +65,7 @@ export default function ClerkWrapper({ children }: { children: ReactNode }) {
 
   return (
     <ClerkProvider
+      publishableKey={clerkPublishableKey()}
       localization={itIT}
       appearance={clerkAppearance}
       signInUrl="/auth/login"
