@@ -3,7 +3,6 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import { itIT } from '@clerk/localizations'
 import type { ReactNode } from 'react'
-import { clerkPublishableKey } from '@/lib/clerk-env'
 
 const clerkAppearance = {
   variables: {
@@ -56,16 +55,14 @@ const clerkAppearance = {
 }
 
 /**
- * Clerk v7+ — vedi https://clerk.com/docs/nextjs/reference/components/clerk-provider
- * Redirect dopo login/registrazione: sempre verso il nostro sync JWT backend.
- * (Evita mismatch tra SignIn/SignUp e sessione.)
+ * Clerk + Next.js — chiavi da `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` / `CLERK_SECRET_KEY` (.env.local o Vercel).
+ * Dopo login/registrazione: sync JWT backend via `/auth/clerk-callback`.
  */
 export default function ClerkWrapper({ children }: { children: ReactNode }) {
   const afterAuth = '/auth/clerk-callback'
 
   return (
     <ClerkProvider
-      publishableKey={clerkPublishableKey()}
       localization={itIT}
       appearance={clerkAppearance}
       signInUrl="/auth/login"
